@@ -14,4 +14,4 @@ EXPOSE 3001
 # sempre será executado:
 ENTRYPOINT [ "npm", "run" ]
 # Dica: Leia a seção Docker e Docker-compose no README para mais informações
-# CMD ["dev", "start"]
+CMD ["start"]
