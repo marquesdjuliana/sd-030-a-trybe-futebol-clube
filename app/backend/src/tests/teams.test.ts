@@ -21,15 +21,15 @@ describe('Teams test', () => {
     expect(status).to.equal(200);
     expect(body).to.deep.equal(teams);
   });
-  afterEach(sinon.restore);
   it('should return a team by id', async function() {
     sinon.stub(SequelizeTeam, 'findOne').resolves(team as any);
-
+    
     const { status, body } = await chai.request(app).get('/teams/1');
-
+    
     expect(status).to.equal(200);
     expect(body).to.deep.equal(team);
   });
+  afterEach(sinon.restore);
 
 
 });
