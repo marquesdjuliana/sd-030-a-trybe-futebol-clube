@@ -1,7 +1,7 @@
 import TeamModel from '../database/models/Team/TeamModel';
-import { ITeam } from '../Interfaces/Team/ITeam';
-import { ITeamModel } from '../Interfaces/Team/ITeamModel';
-import { ServiceResponse } from '../Interfaces/ServiceResponse';
+import { ITeam } from '../interfaces/team/ITeam';
+import { ITeamModel } from '../interfaces/team/ITeamModel';
+import { ServiceResponse } from '../interfaces/ServiceResponse';
 
 export default class TeamsService {
   constructor(
