@@ -2,7 +2,7 @@ import {
   CreationOptional, DataTypes, InferAttributes,
   InferCreationAttributes, Model,
 } from 'sequelize';
-import db from '..';
+import db from '.';
 
 class SequelizeTeam extends Model<InferAttributes<SequelizeTeam>,
 InferCreationAttributes<SequelizeTeam>> {

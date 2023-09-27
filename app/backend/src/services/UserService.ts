@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
-import UserModel from '../database/models/User/UserModel';
+import UserModel from '../models/UserModel';
 import { IUserModel } from '../interfaces/user/IUserModel';
 import { ServiceResponse } from '../interfaces/ServiceResponse';
 

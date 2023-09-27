@@ -6,7 +6,7 @@ import chaiHttp = require('chai-http');
 import { app } from '../app';
 
 
-import SequelizeUser from '../database/models/User/SequelizeUser';
+import SequelizeUser from '../database/models/SequelizeUser';
 import { missingUsernameLogin, missingPasswordLogin, validLogin, validLoginDB } from './user.mock';
 
 chai.use(chaiHttp);

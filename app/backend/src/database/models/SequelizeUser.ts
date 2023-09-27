@@ -5,7 +5,7 @@ import {
   InferCreationAttributes,
   Model,
 } from 'sequelize';
-import db from '..';
+import db from '.';
 
 class SequelizeUser extends Model<InferAttributes<SequelizeUser>,
 InferCreationAttributes<SequelizeUser>> {
