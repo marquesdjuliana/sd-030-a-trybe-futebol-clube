@@ -11,7 +11,6 @@ export default class UserModel implements IUserModel {
         email,
       },
     });
-    console.log(user);
     if (!user) return null;
 
     return user.toJSON();
