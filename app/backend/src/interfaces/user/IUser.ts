@@ -15,5 +15,6 @@ export interface ILogin {
 }
 
 export interface RequestWithRole extends Request {
+  email: string;
   role: JwtPayload;
 }

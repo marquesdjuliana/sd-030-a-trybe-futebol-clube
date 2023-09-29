@@ -22,4 +22,13 @@ export default class UserService {
     const token = authenticateToken.generateToken({ role: user.role, email: user.email });
     return { status: 'SUCCESSFUL', data: { token } };
   }
+
+  // async getUserRoleByEmail(email: string): Promise<ServiceResponse<{ role: string }>> {
+  //   const user = await this.userModel.findByEmail(email);
+  //   console.log(user);
+  //   if (!user) {
+  //     return { status: 'UNAUTHORIZED', data: { message: 'User not found' } };
+  //   }
+  //   return { status: 'SUCCESSFUL', data: { role: user.role } };
+  // }
 }

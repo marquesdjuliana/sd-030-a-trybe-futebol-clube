@@ -16,5 +16,6 @@ router.post(
 router.get('/role', Validations.validateToken, (req, res) => {
   res.status(200).json({ role: (req as RequestWithRole).role });
 });
+// router.get('/role', Validations.validateToken, (req, res) => userController.getUserRole(req, res));
 
 export default router;

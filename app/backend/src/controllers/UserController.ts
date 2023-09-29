@@ -12,4 +12,10 @@ export default class UserController {
     const serviceResponse = await this.userService.login({ email, password });
     return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
   }
+
+  // public async getUserRole(req: Request, res: Response): Promise<Response> {
+  //   const { email } = req.body;
+  //   const serviceResponse = await this.userService.getUserRoleByEmail(email);
+  //   return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+  // }
 }
