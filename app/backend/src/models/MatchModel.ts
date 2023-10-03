@@ -28,4 +28,8 @@ export default class MatchModel implements IMatchModel {
     });
     return dbResults.map((match) => match);
   }
+
+  async finishMatch(id: number): Promise<void> {
+    await this.model.update({ inProgress: false }, { where: { id } });
+  }
 }

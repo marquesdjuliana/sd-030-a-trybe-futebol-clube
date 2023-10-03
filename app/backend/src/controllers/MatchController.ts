@@ -7,25 +7,6 @@ export default class MatchController {
     private matchService = new MatchService(),
   ) {}
 
-  // public async findAll(req: Request, res: Response) {
-  //   const { inProgress } = req.query as { inProgress: string | undefined };
-  //   const isValidProgress = inProgress === 'true' || inProgress === 'false';
-
-  //   let status;
-  //   let data;
-
-  //   if (isValidProgress) {
-  //     const result = await this.matchService.findByProgress(inProgress === 'true');
-  //     status = result.status;
-  //     data = result.data;
-  //   } else {
-  //     const result = await this.matchService.findAll();
-  //     status = result.status;
-  //     data = result.data;
-  //   }
-
-  //   return res.status(mapStatusHTTP(status)).json(data);
-  // }
   public async findAll(req: Request, res: Response) {
     const { inProgress } = req.query as { inProgress?: string };
 
@@ -35,6 +16,13 @@ export default class MatchController {
 
     const { status, data } = result;
 
+    return res.status(mapStatusHTTP(status)).json(data);
+  }
+
+  public async finishMatch(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const { status, data } = await this.matchService.finishMatch(Number(id));
     return res.status(mapStatusHTTP(status)).json(data);
   }
 }
