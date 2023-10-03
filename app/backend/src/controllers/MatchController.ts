@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import mapStatusHTTP from '../utils/mapStatusHTTP';
 import MatchService from '../services/MatchService';
 
-export default class MatchsController {
+export default class MatchController {
   constructor(
     private matchService = new MatchService(),
   ) {}
