@@ -17,4 +17,15 @@ export default class MatchModel implements IMatchModel {
     );
     return dbResults.map((match) => match);
   }
+
+  async findByProgress(inProgress: boolean): Promise<IMatch[]> {
+    const dbResults = await this.model.findAll({
+      where: { inProgress },
+      include: [
+        { model: SequelizeTeam, as: 'homeTeam', attributes: ['teamName'] },
+        { model: SequelizeTeam, as: 'awayTeam', attributes: ['teamName'] },
+      ],
+    });
+    return dbResults.map((match) => match);
+  }
 }
