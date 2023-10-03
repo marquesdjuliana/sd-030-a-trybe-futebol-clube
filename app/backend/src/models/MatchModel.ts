@@ -32,4 +32,14 @@ export default class MatchModel implements IMatchModel {
   async finishMatch(id: number): Promise<void> {
     await this.model.update({ inProgress: false }, { where: { id } });
   }
+
+  async findById(id: number): Promise<IMatch | null> {
+    const match = await this.model.findByPk(id);
+    return match;
+  }
+
+  async update(matchData: { id: number; homeTeamGoals: number; awayTeamGoals: number }) {
+    const { id, homeTeamGoals, awayTeamGoals } = matchData;
+    await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+  }
 }
