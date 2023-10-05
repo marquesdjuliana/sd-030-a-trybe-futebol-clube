@@ -6,4 +6,5 @@ export interface IMatchModel {
   finishMatch(id: number): Promise<void>;
   findById(id: number): Promise<IMatch | null>;
   update(matchData: { id: number; homeTeamGoals: number; awayTeamGoals: number }): Promise<void>;
+  create(matchData: IMatch): Promise<IMatch>;
 }

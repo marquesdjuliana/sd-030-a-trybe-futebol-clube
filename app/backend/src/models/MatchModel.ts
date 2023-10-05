@@ -42,4 +42,9 @@ export default class MatchModel implements IMatchModel {
     const { id, homeTeamGoals, awayTeamGoals } = matchData;
     await this.model.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
   }
+
+  async create(matchData: IMatch): Promise<IMatch> {
+    const createMatch = await this.model.create(matchData);
+    return createMatch;
+  }
 }

@@ -29,4 +29,10 @@ export default class MatchService {
     await this.matchModel.update({ id, homeTeamGoals, awayTeamGoals });
     return { status: 'SUCCESSFUL', data: { message: 'Match updated' } };
   }
+
+  public async createMatch(matchData: IMatch):
+  Promise<ServiceResponse<IMatch>> {
+    const createMatch = await this.matchModel.create(matchData);
+    return { status: 'CREATED', data: createMatch };
+  }
 }

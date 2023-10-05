@@ -1,6 +1,7 @@
 import { RequestHandler, Response } from 'express';
 import authenticateToken from '../utils/authenticateToken';
 import { RequestWithRole } from '../interfaces/user/IUser';
+import MatchModel from '../models/MatchModel';
 
 class Validations {
   static validateLogin: RequestHandler = (req, res, next): Response | void => {
@@ -31,6 +32,27 @@ class Validations {
     }
 
     (req as RequestWithRole).role = role;
+    next();
+  };
+
+  static validateMatch: RequestHandler = async (req, res, next): Promise<Response | void> => {
+    const { homeTeamId, awayTeamId } = req.body;
+
+    const model = new MatchModel();
+    const [homeTeam, awayTeam] = await Promise.all([
+      model.findById(Number(homeTeamId)),
+      model.findById(Number(awayTeamId)),
+    ]);
+
+    if (awayTeamId === homeTeamId) {
+      return res.status(422)
+        .json({ message: 'It is not possible to create a match with two equal teams' });
+    }
+
+    if (!homeTeam || !awayTeam) {
+      return res.status(404).json({ message: 'There is no team with such id!' });
+    }
+
     next();
   };
 }
